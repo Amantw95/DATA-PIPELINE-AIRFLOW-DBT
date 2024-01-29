@@ -1,16 +1,35 @@
 Overview
 ========
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+Welcome to our introductory demo project using DBT and Airflow. This project is a simple and practical way to get started with data pipelines, providing a real-world feel. It's designed as a foundational experience for our data testing course.
+
+Pre-Requisites
+================
+* Python
+* Docker
+* Astro CLI
+* VSCode
+
+Installation
+================
+1. Astro CLI:
+To Install Astro CLI, run below command:
+
+    ```brew install astro```
+
+2. Required Dependencies:
+To Install Required Dependencies CLI, run below command:
+
+    ```pip install -r requirements.txt```
 
 Project Contents
 ================
 
-Your Astro project contains the following files and folders:
+This project contains the following files and folders:
 
 - dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes two example DAGs:
-    - `example_dag_basic`: This DAG shows a simple ETL data pipeline example with three TaskFlow API tasks that run daily.
-    - `example_dag_advanced`: This advanced DAG showcases a variety of Airflow features like branching, Jinja templates, task groups and several Airflow operators.
+    - `demo_dag`[data-pipeline-airflow-dbt/dags/demo_dag.py]: This Airflow DAG, labeled simple_dag, is purpose-built for orchestrating and running tasks with DBT (Data Build Tool). Utilizing the DbtDag class from the cosmos module, the DAG seamlessly incorporates project and profile configurations. In execution, Airflow employs the specified settings and operator arguments to seamlessly initiate DBT tasks within the workflow, ensuring a streamlined and efficient data processing pipeline.
+
 - Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
 - include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
 - packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
@@ -18,7 +37,7 @@ Your Astro project contains the following files and folders:
 - plugins: Add custom or community plugins for your project to this file. It is empty by default.
 - airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
 
-Deploy Your Project Locally
+Run Your Project Locally
 ===========================
 
 1. Start Airflow on your local machine by running 'astro dev start'.
@@ -38,12 +57,3 @@ Note: Running 'astro dev start' will start your project with the Airflow Webserv
 
 You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
 
-Deploy Your Project to Astronomer
-=================================
-
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://docs.astronomer.io/cloud/deploy-code/
-
-Contact
-=======
-
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
