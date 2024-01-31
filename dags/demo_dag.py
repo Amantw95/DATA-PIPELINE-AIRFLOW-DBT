@@ -1,8 +1,10 @@
 from cosmos import DbtDag, ProjectConfig
 from datetime import datetime
+from airflow.decorators import dag
 
 from include.constants import DBT_EXECUTABLE_PATH, DBT_PROJECT_PATH, venv_execution_config
 from include.profiles import airflow_db
+
 
 simple_dag = DbtDag(
     project_config=ProjectConfig(str(DBT_PROJECT_PATH)),
@@ -11,10 +13,6 @@ simple_dag = DbtDag(
     operator_args={
         "dbt_executable_path": str(DBT_EXECUTABLE_PATH),
     },
-    start_date=datetime(2023, 11, 30),
-    schedule_interval="@daily",
-    catchup=False,
-    dag_id = "simple_dag",
+    start_date=datetime(2023, 11, 30), schedule_interval="@daily", catchup=False, dag_id="simple_dag_dbt"
     
-)
-
+    )

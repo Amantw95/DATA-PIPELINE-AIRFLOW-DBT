@@ -1,0 +1,13 @@
+demo_dbt_project:
+  outputs:
+    dev:
+      dbname: postgres
+      host: postgres
+      user: postgres
+      port: 5432
+      password: postgres
+      schema: postgres
+      threads: 1
+      type: postgres
+    # Add configurations for other environments if needed
+  target: dev
