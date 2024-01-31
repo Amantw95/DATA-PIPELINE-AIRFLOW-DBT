@@ -29,6 +29,7 @@ This project contains the following files and folders:
 
 - dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes two example DAGs:
     - `demo_dag`[data-pipeline-airflow-dbt/dags/demo_dag.py]: This Airflow DAG, labeled simple_dag, is purpose-built for orchestrating and running tasks with DBT (Data Build Tool). Utilizing the DbtDag class from the cosmos module, the DAG seamlessly incorporates project and profile configurations. In execution, Airflow employs the specified settings and operator arguments to seamlessly initiate DBT tasks within the workflow, ensuring a streamlined and efficient data processing pipeline.
+    - `gx_dag`[data-pipeline-airflow-dbt/dags/demo_dag.py]: This Airflow DAG, 'dbt_gx_dag', automates the execution of dbt (data build tool) and Great Expectations tasks. It schedules daily runs for dbt seed and dbt run operations, followed by Great Expectations tests on a PostgreSQL database. The DAG ensures data reliability and quality in analytics workflows, contributing to a robust data pipeline.
 
 - Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
 - include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
